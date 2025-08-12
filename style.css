@@ -18,8 +18,8 @@
   grid-column: 2;
   grid-row: 1;
   display: flex;
-  background-color: rgb(33, 142, 231);
-  color: white;
+  background-color: #92140c;
+  color: #fff8f0;
   padding: 20px;
   align-items: center;
 }
@@ -27,29 +27,28 @@
 .sidebar {
   grid-column: 1;
   grid-row: 1/ span 2;
-  background-color: lightblue;
+  background-color: #1e1e24;
+  color: #fff8f0;
   font-weight: 600;
   padding: 20px;
 }
 
-.sidebar * {
-  margin-bottom: 8px;
-}
-
 .sidebar .caption{
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .sidebar .line {
   border: none;
   height: 3px;
-  background-color: blue;
+  background-color: #92140c;
+  margin-bottom: 50px;
 }
 
 .sidebar label {
   display: block;
+  margin-bottom: 10px;
 }
 
 .sidebar input {
@@ -58,11 +57,14 @@
   height: 25px;
   border-radius: 13px;
   border: none;
+  background-color: #fff8f0;
+  margin-bottom: 30px;
 }
 
 .sidebar input[type="checkbox"] {
   width: 30px;
   height: 30px;
+  accent-color: #fff8f0;
 }
 
 .sidebar .read {
@@ -70,16 +72,31 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  margin: 10px 0;
+  margin-bottom: 50px;
+}
+
+.sidebar .read * {
+  margin: 0;
 }
 
 .sidebar button {
   display: block;
   margin: 0 auto;
   padding: 15px 30px;
-  border-radius: 10px;
+  border-radius: 15px;
   border: none;
-  background-color: #eee;
+  border: 5px solid #fff8f0;
+  background-color: #92140c;
+  color: #fff8f0;
+  font-weight: 900;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sidebar button:hover {
+  background-color: #1e1e24;
+  color: #fff8f0;
 }
 
 .main-content {
@@ -89,6 +106,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  background-color: #fff8f0;
 }
 
 .main-content div {
@@ -97,7 +115,10 @@
   justify-content: center;
   height: 250px;
   align-items: center;
-  background-color: #ddd;
+  background-color: #1e1e24;
+  color: #fff8f0;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .main-content div * {
