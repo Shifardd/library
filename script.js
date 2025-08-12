@@ -47,9 +47,6 @@ addBook.addEventListener('click', (e)=> {
   authorOfBook.value = '';
   pagesOfBook.value = '';
   statusOfBook.checked = false;
-
-
-
 })
 
 const mainContent = document.querySelector('.main-content');
@@ -59,8 +56,6 @@ function updateLibrary () {
 
   for (let i = 0; i < myLibrary.length; i++){
     let book = document.createElement('div');
-    book.style.cssText = `padding: 10px; border: 5px solid black;`
-
     let title = document.createElement('h2');
     let author = document.createElement('h3');
     let numberPages = document.createElement('p');
@@ -77,11 +72,32 @@ function updateLibrary () {
     remove.textContent = 'Remove';
     changeStatus.textContent = 'Change Status';
 
-    remove.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700;';
-    changeStatus.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700;';
+    remove.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s;';
+    changeStatus.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700; cursor:pointer; transition: all 0.3s;';
+
+
+    remove.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = '#92140c';
+      e.target.style.color = '#fff8f0'
+    })
+
+    remove.addEventListener('mouseout', (e) => {
+      e.target.style.backgroundColor = '#fff8f0';
+      e.target.style.color = '#1e1e24';
+    })
 
     remove.addEventListener('click', () => {
       mainContent.removeChild(book);
+    })
+
+    changeStatus.addEventListener('mouseover', (e) => {
+      e.target.style.backgroundColor = '#92140c';
+      e.target.style.color = '#fff8f0'
+    })
+
+    changeStatus.addEventListener('mouseout', (e) => {
+      e.target.style.backgroundColor = '#fff8f0';
+      e.target.style.color = '#1e1e24';
     })
 
     changeStatus.addEventListener('click', () => {
