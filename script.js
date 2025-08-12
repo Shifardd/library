@@ -37,7 +37,11 @@ addBook.addEventListener('click', (e)=> {
   let newBook = new Book (titleOfBook.value, authorOfBook.value, pagesOfBook.value, readStatus);
 
   if (titleOfBook.value == '' || authorOfBook.value == '' || pagesOfBook.value == '') {
-    alert('Enter valid inputs');
+    Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Enter valid inputs",
+  });
   } else {
     myLibrary.push(newBook.addIt());
     updateLibrary();
