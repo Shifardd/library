@@ -35,12 +35,21 @@ addBook.addEventListener('click', (e)=> {
     readStatus = `Not yet`;
   }
   let newBook = new Book (titleOfBook.value, authorOfBook.value, pagesOfBook.value, readStatus);
+
+  if (titleOfBook.value == '' || authorOfBook.value == '' || pagesOfBook.value == '') {
+    alert('Enter valid inputs');
+  } else {
+    myLibrary.push(newBook.addIt());
+    updateLibrary();
+  }
+
   titleOfBook.value = '';
   authorOfBook.value = '';
   pagesOfBook.value = '';
   statusOfBook.checked = false;
-  myLibrary.push(newBook.addIt());
-  updateLibrary();
+
+
+
 })
 
 const mainContent = document.querySelector('.main-content');
