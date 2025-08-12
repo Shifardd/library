@@ -30,9 +30,9 @@ addBook.addEventListener('click', (e)=> {
   e.preventDefault();
   let readStatus;
   if (statusOfBook.checked) {
-    readStatus = `Finished`;
+    readStatus = 'Finished';
   } else if (!statusOfBook.checked) {
-    readStatus = `Not yet`;
+    readStatus = 'Not yet';
   }
   let newBook = new Book (titleOfBook.value, authorOfBook.value, pagesOfBook.value, readStatus);
 
@@ -56,24 +56,24 @@ function updateLibrary () {
 
   for (let i = 0; i < myLibrary.length; i++){
     let book = document.createElement('div');
-    let title = document.createElement('h2');
-    let author = document.createElement('h3');
+    let title = document.createElement('h3');
+    let author = document.createElement('h4');
     let numberPages = document.createElement('p');
     let readStatus = document.createElement('p');
     let myID = document.createElement('p');
     let remove = document.createElement('button');
     let changeStatus = document.createElement('button');
 
-    title.textContent = `TITLE: ${myLibrary[i].title}`;
-    author.textContent = `AUTHOR: ${myLibrary[i].author}`;
-    numberPages.textContent = `PAGES: ${myLibrary[i].numberOfPages}`;
-    readStatus.textContent = `READ STATUS: ${myLibrary[i].isRead}`;
-    myID.textContent = `ID: ${myLibrary[i].id}`;
+    title.innerHTML = `<strong style="font-size: 1.75rem;">TITLE: </strong>${myLibrary[i].title}`;
+    author.innerHTML = `<strong style="font-size: 1.4rem;">AUTHOR: </strong>${myLibrary[i].author}`;
+    numberPages.innerHTML = `<strong style="font-size: 1.25rem;">PAGES: </strong>${myLibrary[i].numberOfPages}`;
+    readStatus.innerHTML = `<strong style="font-size: 1.25rem;">READ STATUS: </strong>${myLibrary[i].isRead}`;
+    myID.innerHTML = `<strong style="font-size: 1.25rem;">ID: </strong>${myLibrary[i].id}`;
     remove.textContent = 'Remove';
     changeStatus.textContent = 'Change Status';
 
-    remove.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s;';
-    changeStatus.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700; cursor:pointer; transition: all 0.3s;';
+    remove.style.cssText = 'background-color: #fff8f0; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700; cursor: pointer; transition: all 0.3s;';
+    changeStatus.style.cssText = 'background-color: #fff8f0; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700; cursor:pointer; transition: all 0.3s;';
 
 
     remove.addEventListener('mouseover', (e) => {
@@ -101,13 +101,14 @@ function updateLibrary () {
     })
 
     changeStatus.addEventListener('click', () => {
-      if (readStatus.textContent == `READ STATUS: Not yet`) {
-        readStatus.textContent = `READ STATUS: Finished`;
+      if (readStatus.textContent == 'READ STATUS: Not yet' || readStatus.innerHTML == '<strong style="font-size: 1.25rem;">READ STATUS: </strong> Not yet') {
+        readStatus.innerHTML = `<strong style="font-size: 1.25rem;">READ STATUS: </strong> Finished`;
+        myLibrary[i].isRead = 'Finished';
       } else {
-        readStatus.textContent = `READ STATUS: Not yet`;
+        readStatus.innerHTML = `<strong style="font-size: 1.25rem;">READ STATUS: </strong> Not yet`;
+        myLibrary[i].isRead = 'Not yet';
       }
     })
-
     
     book.append(title, author, numberPages, readStatus, myID, remove, changeStatus);
     mainContent.appendChild(book);
