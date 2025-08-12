@@ -92,6 +92,7 @@ function updateLibrary () {
 
     remove.addEventListener('click', () => {
       mainContent.removeChild(book);
+      myLibrary.splice(i, 1);
     })
 
     changeStatus.addEventListener('mouseover', (e) => {
