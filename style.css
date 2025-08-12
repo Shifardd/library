@@ -112,16 +112,13 @@
 .main-content div {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 250px;
-  align-items: center;
+  height: 300px;
   background-color: #1e1e24;
   color: #fff8f0;
   border-radius: 10px;
-  padding: 20px;
+  padding: 15px;
 }
 
 .main-content div * {
-  text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
