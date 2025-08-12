@@ -14,8 +14,8 @@ function addBookToLibrary() {
   return this;
 }
 
-const example1 = new Book ('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet')
-const example2 = new Book ('Harry Potter', 'J.K. Rowling', 4100, 'not read yet')
+const example1 = new Book ('The Hobbit', 'J.R.R. Tolkien', 295, 'Not yet')
+const example2 = new Book ('Harry Potter', 'J.K. Rowling', 4100, 'Not yet')
 myLibrary.push(example1.addIt());
 myLibrary.push(example2.addIt());
 
@@ -33,11 +33,11 @@ for (let i = 0; i < myLibrary.length; i++){
   let remove = document.createElement('button');
   let changeStatus = document.createElement('button');
 
-  title.textContent = myLibrary[i].title;
-  author.textContent = myLibrary[i].author;
-  numberPages.textContent = myLibrary[i].numberOfPages;
-  readStatus.textContent = myLibrary[i].isRead;
-  myID.textContent = myLibrary[i].id;
+  title.textContent = `TITLE: ${myLibrary[i].title}`;
+  author.textContent = `AUTHOR: ${myLibrary[i].author}`;
+  numberPages.textContent = `PAGES: ${myLibrary[i].numberOfPages}`;
+  readStatus.textContent = `READ STATUS: ${myLibrary[i].isRead}`;
+  myID.textContent = `ID: ${myLibrary[i].id}`;
   remove.textContent = 'Remove';
   changeStatus.textContent = 'Change Status';
 
@@ -46,10 +46,10 @@ for (let i = 0; i < myLibrary.length; i++){
   })
 
   changeStatus.addEventListener('click', () => {
-    if (readStatus.textContent == 'not read yet') {
-      readStatus.textContent = 'already read';
+    if (readStatus.textContent == `READ STATUS: Not yet`) {
+      readStatus.textContent = `READ STATUS: Finished`;
     } else {
-      readStatus.textContent = 'not read yet';
+      readStatus.textContent = `READ STATUS: Not yet`;
     }
   })
 
