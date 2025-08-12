@@ -68,6 +68,9 @@ function updateLibrary () {
     remove.textContent = 'Remove';
     changeStatus.textContent = 'Change Status';
 
+    remove.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700;';
+    changeStatus.style.cssText = 'background-color: white; padding: 8px 16px; border: none; border-radius: 15px; font-weight: 700;';
+
     remove.addEventListener('click', () => {
       mainContent.removeChild(book);
     })
