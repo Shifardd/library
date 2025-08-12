@@ -35,6 +35,10 @@ addBook.addEventListener('click', (e)=> {
     readStatus = `Not yet`;
   }
   let newBook = new Book (titleOfBook.value, authorOfBook.value, pagesOfBook.value, readStatus);
+  titleOfBook.value = '';
+  authorOfBook.value = '';
+  pagesOfBook.value = '';
+  statusOfBook.checked = false;
   myLibrary.push(newBook.addIt());
   updateLibrary();
 })
@@ -43,9 +47,11 @@ const mainContent = document.querySelector('.main-content');
 
 function updateLibrary () {
   mainContent.innerHTML = '';
-  
+
   for (let i = 0; i < myLibrary.length; i++){
     let book = document.createElement('div');
+    book.style.cssText = `padding: 10px; border: 5px solid black;`
+
     let title = document.createElement('h2');
     let author = document.createElement('h3');
     let numberPages = document.createElement('p');
