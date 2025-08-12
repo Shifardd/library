@@ -30,14 +30,30 @@ for (let i = 0; i < myLibrary.length; i++){
   let numberPages = document.createElement('p');
   let readStatus = document.createElement('p');
   let myID = document.createElement('p');
+  let remove = document.createElement('button');
+  let changeStatus = document.createElement('button');
 
   title.textContent = myLibrary[i].title;
   author.textContent = myLibrary[i].author;
   numberPages.textContent = myLibrary[i].numberOfPages;
   readStatus.textContent = myLibrary[i].isRead;
   myID.textContent = myLibrary[i].id;
+  remove.textContent = 'Remove';
+  changeStatus.textContent = 'Change Status';
+
+  remove.addEventListener('click', () => {
+    mainContent.removeChild(book);
+  })
+
+  changeStatus.addEventListener('click', () => {
+    if (readStatus.textContent == 'not read yet') {
+      readStatus.textContent = 'already read';
+    } else {
+      readStatus.textContent = 'not read yet';
+    }
+  })
 
   
-  book.append(title, author, numberPages, readStatus, myID);
+  book.append(title, author, numberPages, readStatus, myID, remove, changeStatus);
   mainContent.appendChild(book);
 }
