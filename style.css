@@ -107,6 +107,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   background-color: #fff8f0;
+  min-width: 500px;
 }
 
 .main-content div {
@@ -121,4 +122,18 @@
 
 .main-content div * {
   margin-bottom: 0.8rem;
+}
+
+
+@media (max-width: 1023px) {
+  .main-content div{
+    display: flex !important;
+    justify-content: center;
+  }
+  .main-content div * {
+    font-size: 0.8rem;
+  }
+  .main-content div strong {
+    font-size: 1rem !important;
+  }
 }
