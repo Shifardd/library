@@ -68,6 +68,7 @@ function updateLibrary () {
     let remove = document.createElement('button');
     let changeStatus = document.createElement('button');
 
+    book.dataset.id = myLibrary[i].id;
     title.innerHTML = `<strong style="font-size: 1.75rem;">TITLE: </strong>${myLibrary[i].title}`;
     author.innerHTML = `<strong style="font-size: 1.4rem;">AUTHOR: </strong>${myLibrary[i].author}`;
     numberPages.innerHTML = `<strong style="font-size: 1.25rem;">PAGES: </strong>${myLibrary[i].numberOfPages}`;
@@ -91,8 +92,9 @@ function updateLibrary () {
     })
 
     remove.addEventListener('click', () => {
+      myLibrary.splice(myLibrary.findIndex(obj => obj.id == book.dataset.id), 1);
       mainContent.removeChild(book);
-      myLibrary.splice(i, 1);
+      updateLibrary();
     })
 
     changeStatus.addEventListener('mouseover', (e) => {
@@ -106,12 +108,13 @@ function updateLibrary () {
     })
 
     changeStatus.addEventListener('click', () => {
+      let index = myLibrary.findIndex(obj => obj.id == book.dataset.id);
       if (readStatus.textContent == 'READ STATUS: Not yet' || readStatus.innerHTML == '<strong style="font-size: 1.25rem;">READ STATUS: </strong> Not yet') {
         readStatus.innerHTML = `<strong style="font-size: 1.25rem;">READ STATUS: </strong> Finished`;
-        myLibrary[i].isRead = 'Finished';
+        myLibrary[index].isRead = 'Finished';
       } else {
         readStatus.innerHTML = `<strong style="font-size: 1.25rem;">READ STATUS: </strong> Not yet`;
-        myLibrary[i].isRead = 'Not yet';
+        myLibrary[index].isRead = 'Not yet';
       }
     })
     
